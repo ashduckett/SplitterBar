@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.splitter-container {
+    background-color: red;
+    height: 750px;
+    width: 100%;
+}
