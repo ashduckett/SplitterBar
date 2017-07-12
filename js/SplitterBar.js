@@ -4,8 +4,8 @@
     $.fn.SplitterBar = function() {
         $(this).css('display', 'flex');
 
-        let leftSide = $(this).find('.left');
-        let rightSide = $(this).find('.right');
+        let leftSide = $(this).children('.left').first();
+        let rightSide = $(this).children('.right').first();
 
         leftSide.css('background-color', 'red');
         leftSide.css('width', '20px');
@@ -19,9 +19,10 @@
         splitterBar.css('width', '12px');
         splitterBar.css('cursor', 'col-resize');
         
-        $(this).find('.left').after(splitterBar);
+        leftSide.after(splitterBar);
         
         let isDragging = false
+
         splitterBar.mousedown((event) => {
             isDragging = true
             return false;
@@ -34,7 +35,8 @@
 
         $(this).mousemove((event) => {
             if(isDragging) {
-                leftSide.width(event.pageX - splitterBar.width() / 2);
+                let leftOfLeft = leftSide.position().left;
+                leftSide.width(event.pageX - leftOfLeft - splitterBar.width() / 2);
             }
         });
     }

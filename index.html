@@ -7,12 +7,24 @@
 
     </head>
     <body>
+        
         <div class="splitter-container">
-            <div class="left"></div>
-            <div class="right"></div>
+            <div class="left">
+                 <div class="splitter-container2">
+                    <div class="left">Inner Pane Left</div>
+                    <div class="right">Inner Pane Right</div>
+                </div>
+            </div>
+            <div class="right">
+                Outer Paner Right
+            </div>
         </div>
+
+
         <script>
             $('.splitter-container').SplitterBar();
+            $('.splitter-container2').SplitterBar();
+          
         </script>
     </body>
 </html>
